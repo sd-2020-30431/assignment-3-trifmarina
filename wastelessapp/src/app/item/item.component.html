@@ -1,0 +1,35 @@
+<form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmitItem(form)">
+  <div class="form-group">
+    <label>Item name</label>
+    <input class="form-control" #ItemName="ngModel" name="ItemName" [(ngModel)]="formModel.ItemName" required>
+  </div>
+  <div class="form-group">
+    <label>Quantity</label>
+    <input type="number" class="form-control" #Quantity="ngModel" name="Quantity" [(ngModel)]="formModel.Quantity" required>
+  </div>
+  <div class="form-group">
+    <label>Calories</label>
+    <input type="number" class="form-control" #Calories="ngModel" name="Calories" [(ngModel)]="formModel.Calories" required>
+  </div>
+
+  <div class="form-group">
+    <label>Purchase date</label>
+    <input type="date" class="form-control" #PurchaseDate="ngModel" name="PurchaseDate" [(ngModel)]="formModel.PurchaseDate" required>
+  </div>
+
+   <div class="form-group">
+    <label>Expiration date</label>
+    <input type="date" class="form-control" #ExpirationDate="ngModel" name="ExpirationDate" [(ngModel)]="formModel.ExpirationDate" required>
+  </div>
+
+  <div class="form-group">
+    <label>Consumption date</label>
+    <input type="date" class="form-control" #ConsumptionDate="ngModel" name="ConsumptionDate" [(ngModel)]="formModel.ConsumptionDate" required>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-8 offset-md-2">
+      <button type="submit" class="btn btn-lg btn-block" [disabled]="form.invalid">Add Item</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,19 @@
+<button class="btn btn-warning m-1" value="Click" id="coolwarn">View items expiring tomorrow</button>
+
+<div *ngFor="let alert of alerts" class="{{cssClass(alert)}}">
+  <a class="close" (click)="removeAlert(alert)">&times;</a>
+
+  <span [innerHTML]="alert.message">
+  </span>
+
+  <div *ngIf="itemsToExpire">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let it of itemsToExpire">
+        <ul>
+          <li><strong>{{it.itemId}}. {{it.itemName}}</strong></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+

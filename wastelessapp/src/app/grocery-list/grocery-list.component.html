@@ -1,0 +1,13 @@
+<form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmitList(form)">
+  <div class="form-group">
+    <label>List name</label>
+    <input class="form-control" #ListName="ngModel" name="ListName" [(ngModel)]="formModel.ListName" required>
+  </div>
+
+
+  <div class="form-row">
+    <div class="form-group col-md-8 offset-md-2">
+      <button type="submit" class="btn btn-lg btn-block" [disabled]="form.invalid">Add List</button>
+    </div>
+  </div>
+</form>

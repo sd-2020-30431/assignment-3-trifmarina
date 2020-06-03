@@ -1,0 +1,8 @@
+<h2>Hover to view the report</h2>
+<div class="rep" [appRepchange]="color" (mouseenter) ="mouseEnter('div a')">
+  <ul class="repl">
+    <li><strong>Number of items                               </strong>{{itemReport.nrItems}}</li>
+    <li><strong>Number of items expired                       </strong>{{itemReport.itemsExpired}}</li>
+    <li><strong>Number of items expired before consumption    </strong>{{itemReport.itemsExpiredBeforeConsumption}}</li>
+  </ul>
+</div>

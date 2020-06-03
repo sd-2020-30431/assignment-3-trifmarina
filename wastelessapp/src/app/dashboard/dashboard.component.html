@@ -1,0 +1,78 @@
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand text-white">WasteLess</a>
+    <button class = "btn btn-info btn-donate" (click)="onReport()">Reports</button>
+    <button class = "btn btn-danger" (click)="onLogout()">Logout</button>
+  </nav>
+
+  <div class="card m-5" style="width:18rem" *ngIf="userDetails">
+  <ul class="list-group">
+    <li class="list-group-item"><strong>Username : </strong>{{userDetails.username}}</li>
+    <li class="list-group-item"><strong>Email : </strong>{{userDetails.email}}</li>
+  </ul>
+  </div>
+
+  <button class = "btn btn-warning my-2 mx-5" (click)="onDonate()">Donate</button>
+  <!--<button class="btn btn-warning m-1" (click)="alertService.warn('Warning: ...', options)">View items expiring tomorrow</button>-->
+
+
+  <div class="jumbotron p-4">
+    <div class="container text-center">
+      <app-alert></app-alert>
+  <!--    <router-outlet></router-outlet>-->
+    </div>
+  </div>
+
+
+  <button type="button" class="btn btn-light new-item" value="Click" id="coolbutton">+ New item</button>
+  <button type="button" class="btn btn-light new-list" value="Click" id="coolbuttonlist">+ New list</button>
+
+  <div class="row">
+
+
+  <div class="card m-5" style="width:30rem" *ngIf="items">
+    <ul class="list-group">
+
+      <li class="list-group-item" *ngFor="let it of items">
+        <ul>
+          <li><strong>Item Id: </strong>{{it.itemId}}</li>
+          <li><strong>Item name: </strong>{{it.itemName}}</li>
+          <li><strong>Quantity : </strong>{{it.quantity}}</li>
+          <li><strong>Calories : </strong>{{it.calories}}</li>
+          <li><strong>Purchase date : </strong>{{it.purchaseDate}}</li>
+          <li><strong>Expiration date : </strong>{{it.expirationDate}}</li>
+          <li><strong>Consumption date : </strong>{{it.consumptionDate}}</li>
+          <li style="color:red"><strong>Ideal burndown rate: </strong>{{it.ideal}} calories/day</li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+
+
+
+  <div class="card m-5" style="width:30rem" *ngIf="gLists">
+
+    <ul class="list-group">
+
+      <li class="list-group-item" *ngFor="let li of gLists">
+        <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-10">
+        <ul>
+          <li><strong>List Id: </strong>{{li.groceryListId}}</li>
+          <li><strong>List name: </strong>{{li.groceryListName}}</li>
+        </ul>
+          </div>
+          <div class="col-2">
+          <svg class="bi bi-plus-square-fill pl-item" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" (click)="OnClickPlus(li.groceryListId)">
+            <path fill-rule="evenodd" d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm6.5 4a.5.5 0 00-1 0v3.5H4a.5.5 0 000 1h3.5V12a.5.5 0 001 0V8.5H12a.5.5 0 000-1H8.5V4z" clip-rule="evenodd"/>
+          </svg>
+          </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+  </div>
